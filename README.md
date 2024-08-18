@@ -71,19 +71,19 @@ If you find this script useful and would like to support further development, co
 ### Bitcoin
 Address: `32VaadWB1EkD18hoE8t5pGqRmyD5g4CV9A`
 
-[![Bitcoin QR Code](https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=32VaadWB1EkD18hoE8t5pGqRmyD5g4CV9A)](https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=32VaadWB1EkD18hoE8t5pGqRmyD5g4CV9A)
+[![Bitcoin QR Code](https://github.com/user-attachments/assets/83bbedff-f793-4797-9a50-391ab8a2a838)](https://github.com/user-attachments/assets/83bbedff-f793-4797-9a50-391ab8a2a838)
 
 ### Ethereum
 Address: `0x673ffaA78F49CF7f3627178EDaf512F58160e3ED`
 
-[![Ethereum QR Code](https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=0x673ffaA78F49CF7f3627178EDaf512F58160e3ED)](https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=0x673ffaA78F49CF7f3627178EDaf512F58160e3ED)
+[![Ethereum QR Code](https://github.com/user-attachments/assets/e537afb6-cc0f-4ef6-9beb-0a9002a32014)](https://github.com/user-attachments/assets/e537afb6-cc0f-4ef6-9beb-0a9002a32014)
 
 ### Litecoin
 Address: `ltc1qehu40dd2u9qdlrl3vjh7dcxqgd2q6xwjhna8e5`
 
-[![Litecoin QR Code](https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=ltc1qehu40dd2u9qdlrl3vjh7dcxqgd2q6xwjhna8e5)](https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=ltc1qehu40dd2u9qdlrl3vjh7dcxqgd2q6xwjhna8e5)
+[![Litecoin QR Code](https://github.com/user-attachments/assets/34224512-73dc-4c74-bdff-3b17d380d3d0)](https://github.com/user-attachments/assets/34224512-73dc-4c74-bdff-3b17d380d3d0)
 
 ### USDT (TRC-20)
 Address: `TMcVnY3CyqEfgqCwhunzGjJdwsR4WSZZc9`
 
-[![Litecoin QR Code](https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=TMcVnY3CyqEfgqCwhunzGjJdwsR4WSZZc9)](https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=TMcVnY3CyqEfgqCwhunzGjJdwsR4WSZZc9)
+[![USDT QR Code](https://github.com/user-attachments/assets/d4666b3a-bbca-42d5-85c0-df4e21b96203)](https://github.com/user-attachments/assets/d4666b3a-bbca-42d5-85c0-df4e21b96203)
