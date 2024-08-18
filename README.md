@@ -78,10 +78,6 @@ Address: `0x673ffaA78F49CF7f3627178EDaf512F58160e3ED`
 
 [![Ethereum QR Code](https://github.com/user-attachments/assets/e537afb6-cc0f-4ef6-9beb-0a9002a32014)](https://github.com/user-attachments/assets/e537afb6-cc0f-4ef6-9beb-0a9002a32014)
 
-### Litecoin
-Address: `ltc1qehu40dd2u9qdlrl3vjh7dcxqgd2q6xwjhna8e5`
-
-[![Litecoin QR Code](https://github.com/user-attachments/assets/34224512-73dc-4c74-bdff-3b17d380d3d0)](https://github.com/user-attachments/assets/34224512-73dc-4c74-bdff-3b17d380d3d0)
 
 ### USDT (TRC-20)
 Address: `TMcVnY3CyqEfgqCwhunzGjJdwsR4WSZZc9`
