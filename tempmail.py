@@ -1,12 +1,9 @@
 import tkinter as tk
 from tkinter import messagebox, ttk
 from email_manager import generate_email, check_inbox, reset_email, delete_email, get_current_email, read_email
-import pyperclip
-import sys
 
 def copy_email_to_clipboard(root):
     email = get_current_email()
-    print(f"Email to copy: {email}")  # Debug line
     if email:
         text_window = tk.Toplevel(root)
         text_window.title("Copy Email")
@@ -20,8 +17,6 @@ def copy_email_to_clipboard(root):
         email_text.pack(pady=5)
 
         email_text.config(state=tk.DISABLED) 
-        
-        
     else:
         messagebox.showwarning("Warning", "No email to copy!")
 
@@ -34,23 +29,51 @@ def update_email_label(label):
         label.config(text=email)
 
 def refresh_inbox(tree):
-    email = get_current_email()
-    if email:
+    try:
         inbox_messages = check_inbox()
         tree.delete(*tree.get_children())  # Clear previous inbox items
         for i, msg in enumerate(inbox_messages):
             tree.insert('', 'end', iid=i, text=f"Message {i+1}",
                         values=(msg['from'], msg['subject'], msg['id']))
+    except Exception as e:
+        messagebox.showerror("Error", f"Failed to refresh inbox: {str(e)}")
 
 def on_inbox_item_click(event, tree):
     selected_item = tree.selection()
     if selected_item:
         item_id = tree.item(selected_item)['values'][2]  # Extract message ID
         email = get_current_email()
-        username, domain = email.split('@')
-        read_email(username, domain, item_id)
+        if email:
+            username, domain = email.split('@')
+            email_content = read_email(username, domain, item_id)
+            display_email_content(email_content)
+
+def display_email_content(email_content):
+    content_window = tk.Toplevel()
+    content_window.title("Email Content")
+    content_window.geometry("500x400")
+
+    subject_label = tk.Label(content_window, text=f"Subject: {email_content['subject']}", font=("Arial", 12))
+    subject_label.pack(pady=10)
+
+    content_text = tk.Text(content_window, wrap='word', height=15, width=60)
+    content_text.insert(tk.END, email_content['textBody'])
+    content_text.pack(pady=10)
+
+    content_text.config(state=tk.DISABLED)
+
+def reset_email_and_refresh():
+    reset_email()
+    update_email_label(email_display)
+    refresh_inbox(inbox_tree)
+
+def delete_email_and_generate():
+    delete_email()
+    update_email_label(email_display)
+    refresh_inbox(inbox_tree)
 
 def start_gui():
+    global email_display, inbox_tree
     root = tk.Tk()
     root.title("Temp Mail")
     root.geometry("600x500")
@@ -103,63 +126,5 @@ def start_gui():
 
     root.mainloop()
 
-def delete_email_and_generate():
-    delete_email()
-    print("Email deleted.")
-    update_email_label(email_display)
-    refresh_inbox(inbox_tree)
-
-def reset_email_and_refresh():
-    reset_email()
-    update_email_label(email_display)
-    refresh_inbox(inbox_tree)
-
-def start_cli():
-    while True:
-        print("\n1. Generate Email")
-        print("2. Check Inbox")
-        print("3. Reset Email")
-        print("4. Delete Email")
-        print("5. Exit")
-
-        choice = input("\nEnter your choice: ")
-
-        if choice == '1':
-            print(f"Generated Email: {generate_email()}")
-        elif choice == '2':
-            messages = check_inbox()
-            if messages:
-                for i, msg in enumerate(messages, start=1):
-                    print(f"\n{i}. From: {msg['from']} | Subject: {msg['subject']} | Date: {msg['date']}")
-                    print('-' * 50)
-                email_choice = input("\nChoose Email (number) to read or press Enter to go back: ")
-                if email_choice:
-                    try:
-                        email_choice = int(email_choice) - 1
-                        if 0 <= email_choice < len(messages):
-                            email = get_current_email()
-                            username, domain = email.split('@')
-                            read_email(username, domain, messages[email_choice]['id'])
-                        else:
-                            print("[!] Invalid choice.")
-                    except ValueError:
-                        print("[!] Invalid input.")
-            else:
-                print("[!] Inbox is empty.")
-        elif choice == '3':
-            reset_email()
-            print("Email has been reset.")
-        elif choice == '4':
-            delete_email()
-            generate_email()  # Generate a new email after deletion
-            print("Email has been deleted and a new one generated.")
-        elif choice == '5':
-            sys.exit(0)
-        else:
-            print("[!] Invalid choice. Please select a valid option.")
-
 if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1] == 'cli':
-        start_cli()
-    else:
-        start_gui()
+    start_gui()
